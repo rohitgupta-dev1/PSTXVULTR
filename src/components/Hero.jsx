@@ -92,7 +92,7 @@ export default function Hero({ onOpenGrantModal }) {
         </div>
 
         {/* Stats Ribbon */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {stats.map((stat, idx) => (
             <div 
               key={idx}
@@ -116,6 +116,27 @@ export default function Hero({ onOpenGrantModal }) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Real Polaris Campus Visual Image Showcase */}
+        <div className="w-full rounded-3xl bg-zinc-950 border border-zinc-800 p-2 sm:p-3 overflow-hidden shadow-2xl relative group">
+          <div className="relative rounded-2xl overflow-hidden">
+            <img 
+              src="/images/polaris_hero_real.webp" 
+              alt="Polaris School of Technology Official Campus & Engineering Lab" 
+              className="w-full h-auto object-cover max-h-[480px] rounded-2xl transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-6 sm:p-8">
+              <div className="text-left space-y-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30 text-[#ffcc3f] text-xs font-mono font-semibold uppercase">
+                  <span>● Official Polaris Campus Showcase</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Polaris School of Technology × Vultr US Infrastructure Hub
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

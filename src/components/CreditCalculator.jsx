@@ -36,11 +36,11 @@ export default function CreditCalculator({ onOpenGrantModal }) {
       bandwidthSpecs = `${(cohortSize * 1.5).toFixed(0)} TB Collective Datacenter Egress`;
     }
   } else if (track === 'ojt') {
-    // OJT team: 4-8 students working on live commercial projects
+    // OJT team: 4-8 students working on live commercial projects, capped at $150k annual pool
     const effectiveTeam = Math.max(cohortSize, 4);
-    totalAllocation = effectiveTeam * 300;
+    totalAllocation = Math.min(effectiveTeam * 300, 150000);
     periodText = '/ OJT project term';
-    policyTag = `Disbursed directly by Polaris for live commercial OJT client deployments.`;
+    policyTag = `Disbursed directly by Polaris for live commercial OJT deployments. Capped at $150k annual pool.`;
     poolSource = 'Base Student Cloud Credits Pool ($150k/yr)';
     computeSpecs = 'High-Frequency 4-Node Multi-Tier Cluster (Frontend + API + Worker)';
     containerNodes = 'Vultr Kubernetes Engine (VKE) with zero control-plane fees';

@@ -36,7 +36,6 @@ export default function Navbar({ onOpenGrantModal }) {
     { href: '#overview', label: 'Overview', id: 'overview' },
     { href: '#funding', label: '$1.4M Grants', id: 'funding' },
     { href: '#curriculum', label: '4-Year Module', id: 'curriculum' },
-    { href: '#calculator', label: 'Quota Simulator', id: 'calculator' },
     { href: '#governance', label: 'Governance', id: 'governance' },
     { href: '#faq', label: 'FAQ', id: 'faq' }
   ];
@@ -44,10 +43,10 @@ export default function Navbar({ onOpenGrantModal }) {
   return (
     <header className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
       <div 
-        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between ${
+        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between ${
           scrolled 
             ? 'bg-zinc-950/90 backdrop-blur-xl border border-zinc-800/80 shadow-2xl shadow-black/80' 
-            : 'bg-zinc-950/75 backdrop-blur-md border border-zinc-900/80 shadow-lg'
+            : 'bg-zinc-950/80 backdrop-blur-md border border-zinc-900/80 shadow-lg'
         }`}
       >
         {/* Brand Group */}
@@ -57,7 +56,7 @@ export default function Navbar({ onOpenGrantModal }) {
           </a>
 
           {/* August 2026 Status Tag */}
-          <span className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium tracking-wider bg-zinc-900/90 text-[#ffcc3f] border border-zinc-800 whitespace-nowrap ml-1">
+          <span className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium tracking-wider bg-zinc-900/90 text-[#ffcc3f] border border-zinc-800 whitespace-nowrap">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ffcc3f] animate-pulse"></span>
             AUG 2026
           </span>
@@ -84,16 +83,16 @@ export default function Navbar({ onOpenGrantModal }) {
         </nav>
 
         {/* Action CTAs */}
-        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <a 
             href="#calculator" 
-            className="px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wider text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 transition-all whitespace-nowrap"
+            className="hidden md:inline-flex px-3 py-1.5 rounded-full text-xs font-medium tracking-wider text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 transition-all whitespace-nowrap"
           >
             Quota Simulator
           </a>
           <button 
             onClick={onOpenGrantModal}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 flex items-center gap-1.5 whitespace-nowrap"
+            className="px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
           >
             <span>Apply Grants</span>
             <ChevronRight className="w-3.5 h-3.5" />
