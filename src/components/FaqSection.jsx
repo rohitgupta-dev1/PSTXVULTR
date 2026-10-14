@@ -7,15 +7,15 @@ export default function FaqSection() {
   const faqs = [
     {
       q: 'What are the Base Student Cloud Credits and who is eligible?',
-      a: 'Under Section 1(a), Vultr US will provide up to USD 150,000 per year in Base Student Cloud Credits. These credits are disbursed directly by Polaris to enrolled students for On-the-Job Training (OJT) and related academic/project work. Each student is capped at USD 350 per contract year, subject to Vultr US periodic review.'
+      a: 'Under Section 1(a), Vultr will provide up to USD 150,000 per year in Base Student Cloud Credits. These credits are disbursed directly by Polaris to enrolled students for On-the-Job Training (OJT) and related academic/project work. Each student is capped at USD 350 per contract year, subject to Vultr periodic review.'
     },
     {
       q: 'How does the $800,000 Student Startup Credit Grant work?',
-      a: 'Under Section 1(b), Vultr US has committed a Student Startup Credit Grant pool of up to USD 800,000 over four (4) years (USD 200,000 per year). Eligible student-led startups, research spin-outs, and Polaris hackathon championship teams can apply for venture infrastructure grants ranging from $5,000 to $25,000+.'
+      a: 'Under Section 1(b), Vultr has committed a Student Startup Credit Grant pool of up to USD 800,000 over four (4) years (USD 200,000 per year). Eligible student-led startups, research spin-outs, and Polaris hackathon championship teams can apply for venture infrastructure grants ranging from $5,000 to $25,000+.'
     },
     {
-      q: 'What specific contributions will Polaris provide to Vultr US?',
-      a: 'Polaris will provide Vultr US with fair and accurate reporting on credit adoption and student progress, include Vultr US in Polaris marketing campaigns, and integrate Vultr as the native cloud deployment environment within its curriculum before the August 2026 programme launch, developing a foundational cloud deployment module that compounds in complexity across all four years.'
+      q: 'What specific contributions will Polaris provide to Vultr?',
+      a: 'Polaris will provide Vultr with fair and accurate reporting on credit adoption and student progress, include Vultr in Polaris marketing campaigns, and integrate Vultr as the native cloud deployment environment within its curriculum before the August 2026 programme launch, developing a foundational cloud deployment module that compounds in complexity across all four years.'
     },
     {
       q: 'When does the curriculum integration go live?',

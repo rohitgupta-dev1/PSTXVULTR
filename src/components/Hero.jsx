@@ -4,18 +4,23 @@ import { DualBrandLockup } from './BrandLogos';
 export default function Hero({ onOpenGrantModal }) {
   const [activeMetric, setActiveMetric] = useState(0);
 
-  // 1st and 2nd cards removed as requested, leaving Student Startup Grant & Curriculum Integration
   const stats = [
+    {
+      label: 'TOTAL PARTNERSHIP COMMITMENT',
+      value: '$1.5M',
+      detail: 'Committed Vultr Cloud compute runway',
+      highlight: true
+    },
+    {
+      label: 'BASE STUDENT CLOUD CREDITS',
+      value: '$150,000/yr',
+      detail: 'Capped at $350/student/contract year for OJT',
+      highlight: false
+    },
     {
       label: 'STUDENT STARTUP CREDIT GRANT',
       value: '$800,000',
       detail: '$200,000/year over 4 years for ventures',
-      highlight: true
-    },
-    {
-      label: 'CURRICULUM INTEGRATION',
-      value: 'AUG 2026',
-      detail: '4-Year compounding cloud modules',
       highlight: false
     }
   ];
@@ -43,13 +48,13 @@ export default function Hero({ onOpenGrantModal }) {
 
         {/* Subtitle */}
         <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mb-8 sm:mb-12 leading-relaxed font-normal px-2">
-          Polaris School of Technology joins forces with <strong className="text-white font-medium">Vultr US</strong> to 
+          Polaris School of Technology joins forces with <strong className="text-white font-medium">Vultr</strong> to 
           fund undergraduate engineers with direct cloud credits, venture acceleration grants, and a groundbreaking 
           4-year compounding cloud deployment curriculum.
         </p>
 
-        {/* Stats Ribbon - 2 Cards Balanced */}
-        <div className="w-full max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-10 sm:mb-12">
+        {/* Stats Ribbon - 3 Cards Balanced */}
+        <div className="w-full max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 mb-10 sm:mb-12">
           {stats.map((stat, idx) => (
             <div 
               key={idx}
@@ -89,7 +94,7 @@ export default function Hero({ onOpenGrantModal }) {
                   <span>● Official Polaris Campus Showcase</span>
                 </div>
                 <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white tracking-tight">
-                  Polaris School of Technology × Vultr US Infrastructure Hub
+                  Polaris School of Technology × Vultr Infrastructure Hub
                 </h3>
               </div>
             </div>

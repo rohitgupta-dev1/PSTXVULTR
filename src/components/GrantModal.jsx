@@ -206,7 +206,7 @@ export default function GrantModal({ isOpen, onClose }) {
             </h3>
             <p className="text-zinc-400 text-sm mb-6 leading-relaxed font-normal">
               Drawn from the dedicated <strong className="text-white font-medium">$800,000 four-year credit grant</strong> committed 
-              by Vultr US ($200,000/year) for Polaris student startups and hackathon winners.
+              by Vultr ($200,000/year) for Polaris student startups and hackathon winners.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -305,7 +305,7 @@ export default function GrantModal({ isOpen, onClose }) {
             <h3 className="text-2xl font-bold text-white">Application Received & Recorded!</h3>
             <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed font-normal">
               Your startup grant request for <strong className="text-[#ffcc3f]">{formData.title}</strong> has been logged 
-              into the Polaris Incubator & Vultr US partnership evaluation pipeline.
+              into the Polaris Incubator & Vultr partnership evaluation pipeline.
             </p>
 
             <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400 max-w-sm mx-auto">

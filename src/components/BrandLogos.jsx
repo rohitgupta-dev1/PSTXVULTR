@@ -17,7 +17,7 @@ export function VultrLogo({ className = "h-8" }) {
     <div className={`flex items-center justify-center ${className}`}>
       <img
         src="/images/vultr_logo.svg"
-        alt="Vultr US"
+        alt="Vultr"
         className="h-full w-auto object-contain shrink-0"
       />
     </div>

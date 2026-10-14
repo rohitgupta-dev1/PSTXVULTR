@@ -62,7 +62,7 @@ export default function CurriculumRoadmap() {
         { type: 'gold', text: '+ vultr_load_balancer.global_edge [Tokyo, Frankfurt, NY]' },
         { type: 'gold', text: '+ vultr_object_storage.cdn_assets [S3-compatible 500GB]' },
         { type: 'green', text: 'Apply complete! Resources: 14 added, 0 changed, 0 destroyed.' },
-        { type: 'command', text: 'ojt-telemetry-agent --report-to-vultr-us' },
+        { type: 'command', text: 'ojt-telemetry-agent --report-to-vultr' },
         { type: 'response', text: '✓ Credit burn audit synchronized with Polaris Academic Registry' }
       ],
       metrics: [

@@ -7,13 +7,13 @@ export default function Governance() {
       icon: BarChart3,
       tag: 'QUARTERLY AUDIT CADENCE',
       title: 'Fair & Accurate Adoption Telemetry',
-      desc: 'Polaris delivers structured, transparent reporting to Vultr US tracking student credit burn velocity, active VM deployments, Kubernetes node hours, and academic milestone progression to ensure optimal resource utilization.'
+      desc: 'Polaris delivers structured, transparent reporting to Vultr tracking student credit burn velocity, active VM deployments, Kubernetes node hours, and academic milestone progression to ensure optimal resource utilization.'
     },
     {
       icon: Megaphone,
       tag: 'TIER 1 BRAND PROMINENCE',
       title: 'Global Co-Marketing & PR Campaigns',
-      desc: 'Vultr US is featured as the Official Cloud Infrastructure Partner across all Polaris admissions brochures, technical whitepapers, engineering podcasts, hackathon keynotes, and founder showcase events.'
+      desc: 'Vultr is featured as the Official Cloud Infrastructure Partner across all Polaris admissions brochures, technical whitepapers, engineering podcasts, hackathon keynotes, and founder showcase events.'
     },
     {
       icon: Calendar,

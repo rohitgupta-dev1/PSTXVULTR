@@ -13,7 +13,7 @@ export default function Footer({ onOpenGrantModal }) {
 
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
               Official institutional cloud computing alliance between Polaris School of Technology 
-              and Vultr US, providing $1.5M in infrastructure, student cloud credits, and progressive curriculum.
+              and Vultr, providing $1.5M in infrastructure, student cloud credits, and progressive curriculum.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ export default function Footer({ onOpenGrantModal }) {
               rel="noopener noreferrer" 
               className="px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-medium tracking-wider text-zinc-300 hover:text-white bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all inline-flex items-center justify-center gap-1.5 flex-1 sm:flex-initial text-center"
             >
-              <span>Vultr US Official</span>
+              <span>Vultr Official</span>
               <ExternalLink className="w-3 h-3 text-zinc-400" />
             </a>
           </div>
@@ -39,7 +39,7 @@ export default function Footer({ onOpenGrantModal }) {
         {/* Bottom Bar */}
         <div className="pt-6 sm:pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs font-mono text-zinc-500 text-center sm:text-left">
           <div>
-            © 2026 Polaris School of Technology & Vultr US. All Rights Reserved.
+            © 2026 Polaris School of Technology & Vultr. All Rights Reserved.
           </div>
           <div className="flex items-center gap-3 sm:gap-4">
             <span>Confidential Institutional Agreement</span>

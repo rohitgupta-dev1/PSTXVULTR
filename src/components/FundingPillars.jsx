@@ -64,7 +64,7 @@ export default function FundingPillars({ onOpenGrantModal }) {
                 </div>
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-400">GOVERNANCE AUDIT:</span>
-                  <span className="text-zinc-300">Subject to Vultr US periodic review</span>
+                  <span className="text-zinc-300">Subject to Vultr periodic review</span>
                 </div>
               </div>
 

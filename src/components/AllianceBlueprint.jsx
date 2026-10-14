@@ -14,7 +14,7 @@ export default function AllianceBlueprint() {
             A Dual-Engine Engineering Alliance
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
-            A mutual commitment between global cloud infrastructure powerhouse Vultr US and
+            A mutual commitment between global cloud infrastructure powerhouse Vultr and
             Polaris School of Technology, fusing enterprise cloud computing with four years of hands-on software mastery.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function AllianceBlueprint() {
                   <Cloud className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="px-2.5 py-1 sm:px-3 rounded-full bg-[#007BFC]/10 border border-[#007BFC]/30 text-[#38bdf8] text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider uppercase shrink-0">
-                  VULTR US CONTRIBUTION
+                  VULTR CONTRIBUTION
                 </span>
               </div>
 
@@ -131,7 +131,7 @@ export default function AllianceBlueprint() {
                       Fair & Accurate Adoption Reporting
                     </h4>
                     <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                      Transparent usage reporting and telemetry delivered to Vultr US, auditing credit utilization efficiency and student competency milestones.
+                      Transparent usage reporting and telemetry delivered to Vultr, auditing credit utilization efficiency and student competency milestones.
                     </p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export default function AllianceBlueprint() {
                       Marketing & Global Tech Brand Integration
                     </h4>
                     <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                      Including Vultr US as premier Infrastructure Partner across all admissions campaigns, hackathons, and public showcases.
+                      Including Vultr as premier Infrastructure Partner across all admissions campaigns, hackathons, and public showcases.
                     </p>
                   </div>
                 </div>

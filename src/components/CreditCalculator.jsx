@@ -66,7 +66,7 @@ export default function CreditCalculator({ onOpenGrantModal }) {
     totalAllocation = 10000;
     periodText = 'Championship Purse';
     policyTag = `Awarded from the Vultr-sponsored Hackathon & Competition Credit Grant.`;
-    poolSource = 'Vultr US Hackathon & Competition Reserve';
+    poolSource = 'Vultr Hackathon & Competition Reserve';
     computeSpecs = 'Instant GPU Acceleration & High-Freq Compute Pods';
     containerNodes = '4x Multi-Zone Production Instances';
     bandwidthSpecs = '15 TB High-Velocity Pipeline Transfer';
