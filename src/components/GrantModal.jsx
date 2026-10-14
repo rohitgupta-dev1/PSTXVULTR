@@ -93,40 +93,40 @@ export default function GrantModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-2xl shadow-black max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl shadow-black max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Controls */}
-        <div className="flex items-center justify-between mb-6 pb-4 border-b border-zinc-900">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2 mb-5 sm:mb-6 pb-3 sm:pb-4 border-b border-zinc-900">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <button
               onClick={() => { setViewResponses(false); setSubmitted(false); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all ${
                 !viewResponses 
                   ? 'bg-[#ffcc3f] text-black' 
                   : 'bg-zinc-900 text-zinc-400 hover:text-white'
               }`}
             >
-              Grant Application Form
+              Application Form
             </button>
             <button
               onClick={() => setViewResponses(true)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold flex items-center gap-1.5 transition-all ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-semibold flex items-center gap-1.5 transition-all ${
                 viewResponses 
                   ? 'bg-[#ffcc3f] text-black' 
                   : 'bg-zinc-900 text-zinc-400 hover:text-white'
               }`}
             >
-              <Inbox className="w-3.5 h-3.5" />
-              <span>Received Responses ({submissions.length})</span>
+              <Inbox className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+              <span>Responses ({submissions.length})</span>
             </button>
           </div>
 
           <button 
             onClick={handleResetAndClose}
-            className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="p-1.5 sm:p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>

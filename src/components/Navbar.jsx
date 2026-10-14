@@ -40,18 +40,18 @@ export default function Navbar({ onOpenGrantModal }) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-6 pt-2.5 sm:pt-4 transition-all duration-300">
       <div 
-        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between ${
+        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-3.5 sm:px-6 py-2 sm:py-3 flex items-center justify-between ${
           scrolled 
             ? 'bg-zinc-950/90 backdrop-blur-xl border border-zinc-800/80 shadow-2xl shadow-black/80' 
             : 'bg-zinc-950/80 backdrop-blur-md border border-zinc-900/80 shadow-lg'
         }`}
       >
         {/* Brand Group */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a href="#hero" className="flex items-center gap-2.5 group">
-            <DualBrandLockup className="h-6 sm:h-7" />
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a href="#hero" className="flex items-center gap-2 group">
+            <DualBrandLockup className="h-5 sm:h-7" />
           </a>
         </div>
 
@@ -76,24 +76,24 @@ export default function Navbar({ onOpenGrantModal }) {
         </nav>
 
         {/* Action CTAs */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button 
             onClick={onOpenGrantModal}
-            className="px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
+            className="px-2.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
           >
             <span>Apply Grants</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          </button>
+
+          {/* Mobile menu button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-1.5 sm:p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-
-        {/* Mobile menu button */}
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
       </div>
 
       {/* Mobile Menu Dropdown */}

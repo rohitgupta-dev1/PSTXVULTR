@@ -97,39 +97,39 @@ export default function CurriculumRoadmap() {
   const current = curriculumYears.find(c => c.year === activeYear);
 
   return (
-    <section className="py-24 relative z-10" id="curriculum">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-16 sm:py-24 relative z-10" id="curriculum">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ffcc3f] uppercase mb-3 inline-block">
             PEDAGOGICAL EXCELLENCE • AUGUST 2026 LAUNCH
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
             4-Year Compounding Cloud Deployment Module
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg font-normal">
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
             Integrated natively into the Polaris undergraduate curriculum before the August 2026 launch. 
             Complexity builds progressively across all four years, taking students from single VMs to high-scale GPU clusters.
           </p>
         </div>
 
         {/* Year Tabs */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
           {curriculumYears.map(item => (
             <button
               key={item.year}
               onClick={() => setActiveYear(item.year)}
-              className={`p-4 rounded-xl text-left border transition-all duration-200 ${
+              className={`p-3 sm:p-4 rounded-xl text-left border transition-all duration-200 ${
                 activeYear === item.year
                   ? 'bg-zinc-900 border-[#ffcc3f] shadow-[0_0_20px_rgba(255,204,63,0.15)] translate-y-[-2px]'
                   : 'bg-zinc-950/80 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-900/40'
               }`}
             >
-              <div className={`text-xs font-mono font-semibold tracking-wider mb-1 ${
+              <div className={`text-[10px] sm:text-xs font-mono font-semibold tracking-wider mb-0.5 sm:mb-1 ${
                 activeYear === item.year ? 'text-[#ffcc3f]' : 'text-zinc-500'
               }`}>
                 YEAR 0{item.year}
               </div>
-              <div className="text-sm font-semibold text-white truncate">
+              <div className="text-xs sm:text-sm font-semibold text-white truncate">
                 {item.year === 1 && 'Linux & Containers'}
                 {item.year === 2 && 'Kubernetes (VKE)'}
                 {item.year === 3 && 'Edge Systems & OJT'}
@@ -140,32 +140,32 @@ export default function CurriculumRoadmap() {
         </div>
 
         {/* Active Year Detail Panel */}
-        <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-8 sm:p-12 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="rounded-2xl sm:rounded-3xl bg-zinc-950 border border-zinc-800 p-5 sm:p-8 md:p-12 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Column: Theory & Stack */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase px-3 py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+              <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase px-2.5 sm:px-3 py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30 inline-block">
                 {current.badge}
               </span>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-tight">
                 {current.title}
               </h3>
 
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
                 {current.desc}
               </p>
 
               {/* Stack Tags */}
               <div>
-                <span className="block text-xs font-mono font-semibold tracking-wider text-zinc-500 mb-3 uppercase">
+                <span className="block text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-zinc-500 mb-2.5 sm:mb-3 uppercase">
                   INTEGRATED VULTR TECH STACK:
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {current.stack.map((tech, idx) => (
                     <span 
                       key={idx}
-                      className="px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300 hover:border-[#ffcc3f] hover:text-[#ffcc3f] transition-colors"
+                      className="px-2.5 sm:px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] sm:text-xs font-mono text-zinc-300 hover:border-[#ffcc3f] hover:text-[#ffcc3f] transition-colors"
                     >
                       {tech}
                     </span>
@@ -174,34 +174,34 @@ export default function CurriculumRoadmap() {
               </div>
 
               {/* Highlight Quote */}
-              <div className="p-4 rounded-xl bg-zinc-900/60 border-l-4 border-[#ffcc3f] text-sm text-zinc-300 italic font-normal">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900/60 border-l-4 border-[#ffcc3f] text-xs sm:text-sm text-zinc-300 italic font-normal">
                 “{current.highlight}”
               </div>
             </div>
 
             {/* Right Column: Simulated Terminal & KPIs */}
-            <div className="lg:col-span-6 space-y-4">
+            <div className="lg:col-span-6 space-y-3.5 sm:space-y-4">
               {/* Terminal Window */}
-              <div className="rounded-2xl bg-[#09090b] border border-zinc-800 overflow-hidden shadow-2xl">
+              <div className="rounded-xl sm:rounded-2xl bg-[#09090b] border border-zinc-800 overflow-hidden shadow-2xl">
                 {/* Title Bar */}
-                <div className="bg-zinc-900 px-4 py-2.5 flex items-center justify-between border-b border-zinc-800">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                    <span className="text-xs font-mono text-zinc-500 ml-2">
+                <div className="bg-zinc-900 px-3 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between border-b border-zinc-800">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-500/80"></span>
+                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-yellow-500/80"></span>
+                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500/80"></span>
+                    <span className="text-[10px] sm:text-xs font-mono text-zinc-500 ml-1.5 sm:ml-2 truncate max-w-[150px] sm:max-w-none">
                       polaris-cloud@vultr-node-y{current.year}:~
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-[#ffcc3f] tracking-wider uppercase font-semibold">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#ffcc3f] tracking-wider uppercase font-semibold">
                     VULTR CLI V3.4
                   </span>
                 </div>
 
                 {/* Body */}
-                <div className="p-5 font-mono text-xs space-y-2 leading-relaxed overflow-x-auto min-h-[220px]">
+                <div className="p-3.5 sm:p-5 font-mono text-[11px] sm:text-xs space-y-1.5 sm:space-y-2 leading-relaxed overflow-x-auto min-h-[180px] sm:min-h-[220px]">
                   {current.terminalCode.map((line, i) => (
-                    <div key={i} className="flex items-start gap-2">
+                    <div key={i} className="flex items-start gap-1.5 sm:gap-2">
                       {line.type === 'command' && (
                         <>
                           <span className="text-[#ffcc3f] font-semibold select-none">$</span>
@@ -209,13 +209,13 @@ export default function CurriculumRoadmap() {
                         </>
                       )}
                       {line.type === 'response' && (
-                        <span className="text-zinc-400 pl-4 font-normal">{line.text}</span>
+                        <span className="text-zinc-400 pl-3 sm:pl-4 font-normal">{line.text}</span>
                       )}
                       {line.type === 'gold' && (
-                        <span className="text-[#ffcc3f] pl-4 font-medium">{line.text}</span>
+                        <span className="text-[#ffcc3f] pl-3 sm:pl-4 font-medium">{line.text}</span>
                       )}
                       {line.type === 'green' && (
-                        <span className="text-emerald-400 pl-4 font-medium">{line.text}</span>
+                        <span className="text-emerald-400 pl-3 sm:pl-4 font-medium">{line.text}</span>
                       )}
                     </div>
                   ))}
@@ -223,13 +223,13 @@ export default function CurriculumRoadmap() {
               </div>
 
               {/* Year Metrics */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {current.metrics.map((m, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
-                    <div className="text-lg sm:text-xl font-semibold font-mono text-white mb-0.5">
+                  <div key={idx} className="p-2 sm:p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
+                    <div className="text-sm sm:text-lg md:text-xl font-semibold font-mono text-white mb-0.5">
                       {m.val}
                     </div>
-                    <div className="text-[11px] text-zinc-400 font-normal">
+                    <div className="text-[10px] sm:text-[11px] text-zinc-400 font-normal truncate">
                       {m.lbl}
                     </div>
                   </div>

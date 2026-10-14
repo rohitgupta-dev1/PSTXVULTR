@@ -28,27 +28,27 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="py-24 relative z-10" id="faq">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
+    <section className="py-16 sm:py-24 relative z-10" id="faq">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <div className="text-center mb-12 sm:mb-16">
           <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase mb-3 inline-block">
             PARTNERSHIP CHARTER FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg font-normal">
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
             Key policies and procedural guidelines for students, faculty, and student founders.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div 
                 key={idx}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                className={`rounded-xl sm:rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen 
                     ? 'bg-zinc-900 border-[#ffcc3f]' 
                     : 'bg-zinc-950 border-zinc-800/80 hover:border-zinc-700'
@@ -56,18 +56,18 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4"
+                  className="w-full p-4 sm:p-6 text-left flex items-start sm:items-center justify-between gap-3 sm:gap-4"
                 >
-                  <span className="font-semibold text-base sm:text-lg text-white">
+                  <span className="font-semibold text-sm sm:text-base md:text-lg text-white">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full bg-zinc-800/80 flex items-center justify-center text-[#ffcc3f] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-[#ffcc3f]/20' : ''}`}>
-                    <ChevronDown className="w-4 h-4" />
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-800/80 flex items-center justify-center text-[#ffcc3f] shrink-0 transition-transform duration-300 mt-0.5 sm:mt-0 ${isOpen ? 'rotate-180 bg-[#ffcc3f]/20' : ''}`}>
+                    <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60 pt-4">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60 pt-3 sm:pt-4 font-normal">
                     {faq.a}
                   </div>
                 )}

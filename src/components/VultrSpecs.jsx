@@ -36,33 +36,33 @@ export default function VultrSpecs() {
   ];
 
   return (
-    <section className="py-24 bg-zinc-950/90 border-y border-zinc-900 relative z-10" id="infrastructure">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-16 sm:py-24 bg-zinc-950/90 border-y border-zinc-900 relative z-10" id="infrastructure">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase mb-3 inline-block">
             ENTERPRISE FOUNDATION
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
             The Vultr Global Advantage
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg font-normal">
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
             Polaris students build on the same robust, battle-tested cloud trusted by millions of developers worldwide.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {specs.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div 
                 key={idx}
-                className="p-7 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[#ffcc3f] transition-all duration-300 hover:-translate-y-1 group"
+                className="p-5 sm:p-7 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[#ffcc3f] transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-[#ffcc3f] mb-5 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-[#ffcc3f] mb-4 sm:mb-5 group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{item.title}</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed font-normal">{item.desc}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-2">{item.title}</h4>
+                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">{item.desc}</p>
               </div>
             );
           })}
