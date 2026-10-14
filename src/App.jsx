@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import AllianceBlueprint from './components/AllianceBlueprint';
 import FundingPillars from './components/FundingPillars';
 import CurriculumRoadmap from './components/CurriculumRoadmap';
 import VultrSpecs from './components/VultrSpecs';
@@ -25,7 +24,6 @@ export default function App() {
       {/* Main Content Sections */}
       <main className="relative z-10">
         <Hero onOpenGrantModal={() => setIsGrantModalOpen(true)} />
-        <AllianceBlueprint />
         <FundingPillars onOpenGrantModal={() => setIsGrantModalOpen(true)} />
         <CurriculumRoadmap />
         <VultrSpecs />

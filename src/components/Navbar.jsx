@@ -12,7 +12,7 @@ export default function Navbar({ onOpenGrantModal }) {
       setScrolled(window.scrollY > 20);
 
       // Active section detection
-      const sections = ['hero', 'overview', 'funding', 'curriculum', 'faq'];
+      const sections = ['hero', 'funding', 'curriculum', 'faq'];
       const scrollPos = window.scrollY + 100;
 
       for (const section of sections) {
@@ -33,7 +33,6 @@ export default function Navbar({ onOpenGrantModal }) {
   }, []);
 
   const navLinks = [
-    { href: '#overview', label: 'Overview', id: 'overview' },
     { href: '#funding', label: '$1.5M Grants', id: 'funding' },
     { href: '#curriculum', label: '4-Year Module', id: 'curriculum' },
     { href: '#faq', label: 'FAQ', id: 'faq' }
