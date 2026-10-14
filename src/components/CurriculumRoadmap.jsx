@@ -22,7 +22,7 @@ export default function CurriculumRoadmap() {
         { type: 'green', text: 'HTTP/2 200 OK — Ready for Production Traffic' }
       ],
       metrics: [
-        { val: '$300', lbl: 'Year 1 Credit Cap' },
+        { val: '$350', lbl: 'Year 1 Credit Cap' },
         { val: '100%', lbl: 'Freshmen Deployed' },
         { val: '4+', lbl: 'Shipped Micro-apps' }
       ]

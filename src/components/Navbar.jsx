@@ -11,8 +11,8 @@ export default function Navbar({ onOpenGrantModal }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Simple active section detection
-      const sections = ['hero', 'overview', 'funding', 'curriculum', 'calculator', 'governance', 'faq'];
+      // Active section detection
+      const sections = ['hero', 'overview', 'funding', 'curriculum', 'faq'];
       const scrollPos = window.scrollY + 100;
 
       for (const section of sections) {
@@ -34,9 +34,8 @@ export default function Navbar({ onOpenGrantModal }) {
 
   const navLinks = [
     { href: '#overview', label: 'Overview', id: 'overview' },
-    { href: '#funding', label: '$1.4M Grants', id: 'funding' },
+    { href: '#funding', label: '$1.5M Grants', id: 'funding' },
     { href: '#curriculum', label: '4-Year Module', id: 'curriculum' },
-    { href: '#governance', label: 'Governance', id: 'governance' },
     { href: '#faq', label: 'FAQ', id: 'faq' }
   ];
 
@@ -54,12 +53,6 @@ export default function Navbar({ onOpenGrantModal }) {
           <a href="#hero" className="flex items-center gap-2.5 group">
             <DualBrandLockup className="h-6 sm:h-7" />
           </a>
-
-          {/* August 2026 Status Tag */}
-          <span className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium tracking-wider bg-zinc-900/90 text-[#ffcc3f] border border-zinc-800 whitespace-nowrap">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ffcc3f] animate-pulse"></span>
-            AUG 2026
-          </span>
         </div>
 
         {/* Desktop Navigation Links */}
@@ -84,12 +77,6 @@ export default function Navbar({ onOpenGrantModal }) {
 
         {/* Action CTAs */}
         <div className="flex items-center gap-2 shrink-0">
-          <a 
-            href="#calculator" 
-            className="hidden md:inline-flex px-3 py-1.5 rounded-full text-xs font-medium tracking-wider text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 transition-all whitespace-nowrap"
-          >
-            Quota Simulator
-          </a>
           <button 
             onClick={onOpenGrantModal}
             className="px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
@@ -124,13 +111,6 @@ export default function Navbar({ onOpenGrantModal }) {
           ))}
 
           <div className="pt-3 border-t border-zinc-800/80 flex flex-col gap-2.5">
-            <a 
-              href="#calculator"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-center text-xs font-medium text-zinc-300 bg-zinc-900 border border-zinc-800"
-            >
-              Quota Simulator
-            </a>
             <button 
               onClick={() => { setMobileMenuOpen(false); onOpenGrantModal(); }}
               className="px-4 py-2.5 rounded-xl text-center text-xs font-semibold text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-lg"

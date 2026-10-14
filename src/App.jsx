@@ -4,8 +4,6 @@ import Hero from './components/Hero';
 import AllianceBlueprint from './components/AllianceBlueprint';
 import FundingPillars from './components/FundingPillars';
 import CurriculumRoadmap from './components/CurriculumRoadmap';
-import CreditCalculator from './components/CreditCalculator';
-import Governance from './components/Governance';
 import VultrSpecs from './components/VultrSpecs';
 import FaqSection from './components/FaqSection';
 import GrantModal from './components/GrantModal';
@@ -30,8 +28,6 @@ export default function App() {
         <AllianceBlueprint />
         <FundingPillars onOpenGrantModal={() => setIsGrantModalOpen(true)} />
         <CurriculumRoadmap />
-        <CreditCalculator onOpenGrantModal={() => setIsGrantModalOpen(true)} />
-        <Governance />
         <VultrSpecs />
         <FaqSection />
       </main>

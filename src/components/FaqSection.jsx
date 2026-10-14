@@ -7,7 +7,7 @@ export default function FaqSection() {
   const faqs = [
     {
       q: 'What are the Base Student Cloud Credits and who is eligible?',
-      a: 'Under Section 1(a), Vultr US will provide up to USD 150,000 per year in Base Student Cloud Credits. These credits are disbursed directly by Polaris to enrolled students for On-the-Job Training (OJT) and related academic/project work. Each student is capped at USD 300 per contract year, subject to Vultr US periodic review.'
+      a: 'Under Section 1(a), Vultr US will provide up to USD 150,000 per year in Base Student Cloud Credits. These credits are disbursed directly by Polaris to enrolled students for On-the-Job Training (OJT) and related academic/project work. Each student is capped at USD 350 per contract year, subject to Vultr US periodic review.'
     },
     {
       q: 'How does the $800,000 Student Startup Credit Grant work?',

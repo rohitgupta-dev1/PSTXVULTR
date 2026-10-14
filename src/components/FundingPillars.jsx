@@ -52,7 +52,7 @@ export default function FundingPillars({ onOpenGrantModal }) {
               <div className="space-y-3.5 mb-8 bg-black/60 p-5 rounded-2xl border border-zinc-800/80">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-400">STUDENT CAP:</span>
-                  <span className="text-[#ffcc3f] font-semibold">USD $300 / student / year</span>
+                  <span className="text-[#ffcc3f] font-semibold">USD $350 / student / year</span>
                 </div>
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-400">DISBURSED BY:</span>
@@ -86,13 +86,13 @@ export default function FundingPillars({ onOpenGrantModal }) {
               </div>
             </div>
 
-            <a 
-              href="#calculator"
+            <button 
+              onClick={onOpenGrantModal}
               className="btn btn-secondary w-full text-center flex items-center justify-center gap-2"
             >
-              <span>Calculate Your Base Quota</span>
+              <span>Apply for Student Credits</span>
               <ArrowRight className="w-4 h-4 text-[#ffcc3f]" />
-            </a>
+            </button>
           </div>
 
           {/* Pillar 2: Student Startup Credit Grant */}

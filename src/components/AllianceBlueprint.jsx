@@ -50,7 +50,7 @@ export default function AllianceBlueprint() {
                       Base Student Cloud Credits — Up to $150,000 / Year
                     </h4>
                     <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                      Disbursed directly by Polaris to enrolled students for <strong className="text-zinc-200 font-medium">On-the-Job Training (OJT)</strong> and lab workloads. Capped at <strong className="text-[#ffcc3f] font-mono font-medium">$300/student/year</strong>.
+                      Disbursed directly by Polaris to enrolled students for <strong className="text-zinc-200 font-medium">On-the-Job Training (OJT)</strong> and lab workloads. Capped at <strong className="text-[#ffcc3f] font-mono font-medium">$350/student/year</strong>.
                     </p>
                   </div>
                 </div>

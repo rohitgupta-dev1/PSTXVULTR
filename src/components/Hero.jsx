@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Cloud, Cpu, Server, ShieldCheck, Terminal, Award } from 'lucide-react';
+import React, { useState } from 'react';
 import { DualBrandLockup } from './BrandLogos';
 
 export default function Hero({ onOpenGrantModal }) {
@@ -8,14 +7,14 @@ export default function Hero({ onOpenGrantModal }) {
   const stats = [
     {
       label: 'TOTAL PARTNERSHIP COMMITMENT',
-      value: '$1,400,000+',
+      value: '$1,500,000',
       detail: 'Committed Vultr Cloud compute runway',
       highlight: true
     },
     {
       label: 'BASE STUDENT CLOUD CREDITS',
       value: '$150,000/yr',
-      detail: 'Capped at $300/student/contract year for OJT',
+      detail: 'Capped at $350/student/contract year for OJT',
       highlight: false
     },
     {
@@ -44,52 +43,21 @@ export default function Hero({ onOpenGrantModal }) {
           <DualBrandLockup className="h-6 sm:h-7" />
         </div>
 
-        {/* Launch Pill */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-[#ffcc3f] mb-6 shadow-lg shadow-black/50">
-          <span className="w-2 h-2 rounded-full bg-[#ffcc3f] animate-ping"></span>
-          <span className="font-semibold tracking-wider uppercase">OFFICIAL STRATEGIC ALLIANCE • AUGUST 2026 LAUNCH</span>
-        </div>
-
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight text-white max-w-4xl leading-tight mb-5">
           Arming Tomorrow's Builders With{' '}
           <span className="text-[#ffcc3f] relative inline-block drop-shadow-[0_0_35px_rgba(255,204,63,0.35)] font-bold">
-            $1.4M+
+            $1.5M Grant
           </span>{' '}
           in Vultr Cloud Infrastructure
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mb-8 leading-relaxed font-normal">
+        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mb-12 md:mb-14 leading-relaxed font-normal">
           Polaris School of Technology joins forces with <strong className="text-white font-medium">Vultr US</strong> to 
           fund undergraduate engineers with direct cloud credits, venture acceleration grants, and a groundbreaking 
           4-year compounding cloud deployment curriculum.
         </p>
-
-        {/* Hero CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 md:mb-16">
-          <a 
-            href="#funding" 
-            className="btn btn-primary btn-large group"
-          >
-            <span>Explore Credit Grants</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a 
-            href="#curriculum" 
-            className="btn btn-secondary btn-large flex items-center gap-2"
-          >
-            <Terminal className="w-4 h-4 text-[#ffcc3f]" />
-            <span>View 4-Year Cloud Module</span>
-          </a>
-          <button 
-            onClick={onOpenGrantModal}
-            className="btn btn-secondary-outline btn-large flex items-center gap-2"
-          >
-            <Award className="w-4 h-4 text-[#ffcc3f]" />
-            <span>Apply for Startup Pool</span>
-          </button>
-        </div>
 
         {/* Stats Ribbon */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
