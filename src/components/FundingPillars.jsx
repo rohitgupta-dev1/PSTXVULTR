@@ -28,9 +28,6 @@ export default function FundingPillars({ onOpenGrantModal }) {
                 <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-widest text-zinc-400 uppercase bg-zinc-800/80 px-2.5 sm:px-3 py-1 rounded-full">
                   PILLAR A: ACADEMIC & OJT
                 </span>
-                <span className="text-[10px] sm:text-xs font-mono text-[#ffcc3f] font-semibold">
-                  SECTION 1(A)
-                </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-3 sm:mb-4">
@@ -105,9 +102,6 @@ export default function FundingPillars({ onOpenGrantModal }) {
               <div className="flex items-center justify-between mb-5 sm:mb-6">
                 <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase bg-[#ffcc3f]/10 border border-[#ffcc3f]/20 px-2.5 sm:px-3 py-1 rounded-full">
                   PILLAR B: FOUNDERS & HACKATHONS
-                </span>
-                <span className="text-[10px] sm:text-xs font-mono text-[#ffcc3f] font-semibold">
-                  SECTION 1(B)
                 </span>
               </div>
 

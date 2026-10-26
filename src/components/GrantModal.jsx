@@ -197,7 +197,7 @@ export default function GrantModal({ isOpen, onClose }) {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase px-3 py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30">
-                SECTION 1(B) VENTURE GRANT
+                VENTURE GRANT APPLICATION
               </span>
             </div>
 
