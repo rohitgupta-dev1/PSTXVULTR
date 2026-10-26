@@ -27,11 +27,11 @@ export default function CreditCalculator({ onOpenGrantModal }) {
     poolSource = 'Base Student Cloud Credits Pool ($150k/yr)';
 
     if (cohortSize === 1) {
-      computeSpecs = '12 Months Dedicated High-Freq VM (1vCPU, 2GB RAM, 64GB NVMe)';
+      computeSpecs = '12 Months Dedicated High Frequency Compute (1vCPU, 2GB RAM, 64GB NVMe)';
       containerNodes = '1x Isolated Development Node with Docker Engine';
       bandwidthSpecs = '2 TB Global High-Speed Egress Transfer';
     } else {
-      computeSpecs = `${cohortSize}x Independent High-Freq Linux VMs for coursework`;
+      computeSpecs = `${cohortSize}x Independent High Frequency Compute instances for coursework`;
       containerNodes = `${cohortSize * 2}x Docker Environments with IAM sandboxing`;
       bandwidthSpecs = `${(cohortSize * 1.5).toFixed(0)} TB Collective Datacenter Egress`;
     }
@@ -42,7 +42,7 @@ export default function CreditCalculator({ onOpenGrantModal }) {
     periodText = '/ OJT project term';
     policyTag = `Disbursed directly by Polaris for live commercial OJT deployments. Capped at $150k annual pool.`;
     poolSource = 'Base Student Cloud Credits Pool ($150k/yr)';
-    computeSpecs = 'High-Frequency 4-Node Multi-Tier Cluster (Frontend + API + Worker)';
+    computeSpecs = 'High Frequency Compute 4-Node Multi-Tier Cluster (Frontend + API + Worker)';
     containerNodes = 'Vultr Kubernetes Engine (VKE) with zero control-plane fees';
     bandwidthSpecs = '10 TB Production Egress & DDoS Scrubbing included';
   } else if (track === 'startup') {
@@ -57,9 +57,9 @@ export default function CreditCalculator({ onOpenGrantModal }) {
     periodText = 'Venture Grant Runway';
     policyTag = `Funded via the $800,000 Student Startup Credit Grant ($200k/yr pool). Section 1(b).`;
     poolSource = 'Student Startup Credit Grant Pool ($800k / 4 Years)';
-    computeSpecs = infraType === 'gpu' 
-      ? 'NVIDIA A100-SXM4 / L40S Fractional GPU Pods + PyTorch Cluster'
-      : 'High-Concurrency Dedicated AMD EPYC CPU Bare Metal Nodes';
+    computeSpecs = infraType === 'baremetal' 
+      ? 'High-Performance Bare Metal Compute Nodes + Dedicated NVMe'
+      : 'High-Concurrency Dedicated AMD EPYC CPU Compute Instances';
     containerNodes = '8-Node Production VKE Cluster + Managed PostgreSQL HA';
     bandwidthSpecs = '25 TB Enterprise Global CDN & Edge Transfer';
   } else if (track === 'hackathon') {
@@ -67,7 +67,7 @@ export default function CreditCalculator({ onOpenGrantModal }) {
     periodText = 'Championship Purse';
     policyTag = `Awarded from the Vultr-sponsored Hackathon & Competition Credit Grant.`;
     poolSource = 'Vultr Hackathon & Competition Reserve';
-    computeSpecs = 'Instant GPU Acceleration & High-Freq Compute Pods';
+    computeSpecs = 'Instant High Frequency Compute & Bare Metal Compute Pods';
     containerNodes = '4x Multi-Zone Production Instances';
     bandwidthSpecs = '15 TB High-Velocity Pipeline Transfer';
   }
@@ -189,9 +189,9 @@ export default function CreditCalculator({ onOpenGrantModal }) {
                 </label>
                 <div className="grid grid-cols-2 gap-2.5">
                   {[
-                    { id: 'vps', label: 'High-Freq Compute', icon: Server },
+                    { id: 'vps', label: 'High Frequency Compute', icon: Server },
                     { id: 'k8s', label: 'Kubernetes (VKE)', icon: Layers },
-                    { id: 'gpu', label: 'NVIDIA GPU Clusters', icon: Cpu },
+                    { id: 'baremetal', label: 'Bare Metal Compute', icon: Cpu },
                     { id: 'db', label: 'Managed DB & Storage', icon: HardDrive }
                   ].map(item => {
                     const Icon = item.icon;

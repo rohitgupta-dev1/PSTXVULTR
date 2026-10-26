@@ -10,7 +10,7 @@ export default function GrantModal({ isOpen, onClose }) {
     title: '',
     email: '',
     cohort: 'Year 4 (Venture Incubator)',
-    tier: '$25,000 Venture Grant (AI & Cloud GPU Clusters)',
+    tier: '$25,000 Venture Grant (Bare Metal & High Frequency Compute Clusters)',
     tech: ''
   });
 
@@ -264,7 +264,7 @@ export default function GrantModal({ isOpen, onClose }) {
                   onChange={(e) => setFormData({ ...formData, tier: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
                 >
-                  <option>$25,000 Venture Grant (AI & Cloud GPU Clusters)</option>
+                  <option>$25,000 Venture Grant (Bare Metal & High Frequency Compute Clusters)</option>
                   <option>$15,000 Scale Tier (High-Concurrency Kubernetes / DBs)</option>
                   <option>$8,000 Seed MVP Tier (Microservices & Edge)</option>
                   <option>$5,000 Hackathon Innovation Prize</option>
@@ -277,7 +277,7 @@ export default function GrantModal({ isOpen, onClose }) {
                 </label>
                 <textarea
                   rows="2"
-                  placeholder="e.g. Vultr Kubernetes Engine, NVIDIA A100 GPU pods, Managed PostgreSQL, Global Object Storage..."
+                  placeholder="e.g. Vultr Kubernetes Engine, Bare Metal Compute, Managed PostgreSQL, Global Object Storage..."
                   value={formData.tech}
                   onChange={(e) => setFormData({ ...formData, tech: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"

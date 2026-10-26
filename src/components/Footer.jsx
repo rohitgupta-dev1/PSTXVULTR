@@ -13,7 +13,16 @@ export default function Footer({ onOpenGrantModal }) {
 
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
               Official institutional cloud computing alliance between Polaris School of Technology 
-              and Vultr, providing $1.5M in infrastructure, student cloud credits, and progressive curriculum.
+              and{' '}
+              <a 
+                href="https://vultr.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#007BFC] hover:underline font-medium"
+              >
+                Vultr
+              </a>
+              , providing $1.5M in infrastructure, student cloud credits, and progressive curriculum.
             </p>
           </div>
 
@@ -28,10 +37,10 @@ export default function Footer({ onOpenGrantModal }) {
               href="https://vultr.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-medium tracking-wider text-zinc-300 hover:text-white bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all inline-flex items-center justify-center gap-1.5 flex-1 sm:flex-initial text-center"
+              className="px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-medium tracking-wider text-white bg-zinc-900 border border-[#007BFC]/50 hover:border-[#007BFC] hover:bg-[#007BFC]/10 hover:shadow-[0_0_15px_rgba(0,123,252,0.35)] transition-all inline-flex items-center justify-center gap-1.5 flex-1 sm:flex-initial text-center"
             >
               <span>Vultr Official</span>
-              <ExternalLink className="w-3 h-3 text-zinc-400" />
+              <ExternalLink className="w-3 h-3 text-[#007BFC]" />
             </a>
           </div>
         </div>

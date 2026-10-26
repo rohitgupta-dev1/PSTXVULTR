@@ -8,9 +8,9 @@ export default function CurriculumRoadmap() {
     {
       year: 1,
       badge: 'YEAR 01 • FOUNDATIONS',
-      title: 'Linux Systems, Containerization & Bare Compute',
-      desc: 'Students abandon "localhost" within their first 30 days. Every freshman provisions Linux high-frequency compute instances on Vultr, binds DNS records, issues TLS certificates, and deploys containerized web services.',
-      stack: ['Vultr Compute', 'Ubuntu 24.04', 'Docker Engine', 'Nginx Proxy', 'TLS/Let\'s Encrypt', 'GitOps & CI'],
+      title: 'Linux Systems, Containerization & Bare Metal Compute',
+      desc: 'Students abandon "localhost" within their first 30 days. Every freshman provisions Linux High Frequency Compute instances on Vultr, binds DNS records, issues TLS certificates, and deploys containerized web services.',
+      stack: ['High Frequency Compute', 'Bare Metal Compute', 'Ubuntu 24.04', 'Docker Engine', 'Nginx Proxy', 'TLS/Let\'s Encrypt', 'GitOps & CI'],
       highlight: 'Every student deploys public production endpoints with real DNS by Month 2.',
       terminalCode: [
         { type: 'command', text: 'vultr-cli instance create --region ewr --plan vc2-1c-1gb --os 1743' },
@@ -32,7 +32,7 @@ export default function CurriculumRoadmap() {
       badge: 'YEAR 02 • ORCHESTRATION',
       title: 'Vultr Kubernetes Engine (VKE), DBs & Private VPCs',
       desc: 'Advancing from single virtual machines into declarative container orchestration. Students configure Vultr Kubernetes Engine (VKE), wire managed PostgreSQL clusters over isolated private VPC networks, and build health-check autoscalers.',
-      stack: ['VKE Kubernetes', 'Managed PostgreSQL', 'NVMe Block Storage', 'Private VPC Peering', 'Helm Charts', 'Prometheus & Grafana'],
+      stack: ['Vultr Kubernetes Engine (VKE)', 'Managed PostgreSQL', 'NVMe Block Storage', 'Private VPC Peering', 'Helm Charts', 'Prometheus & Grafana'],
       highlight: 'Designing resilient multi-tier web architectures with persistent state and automatic pod self-healing.',
       terminalCode: [
         { type: 'command', text: 'kubectl get nodes -o wide' },
@@ -66,29 +66,29 @@ export default function CurriculumRoadmap() {
         { type: 'response', text: '✓ Credit burn audit synchronized with Polaris Academic Registry' }
       ],
       metrics: [
-        { val: '32+', lbl: 'Global Edge Regions' },
+        { val: '33', lbl: 'Global Edge Regions' },
         { val: '<15ms', lbl: 'Edge Latency' },
         { val: 'Live OJT', lbl: 'Client Projects' }
       ]
     },
     {
       year: 4,
-      badge: 'YEAR 04 • VENTURE & AI SCALE',
-      title: 'Cloud GPUs, LLM Fine-Tuning & Startup Incubation',
-      desc: 'Senior students entering the Polaris Venture Track tap into the $800,000 Student Startup Credit Grant. They provision dedicated NVIDIA A100/H100 GPU clusters on Vultr for AI model training, autonomous agents, and SaaS market scale.',
-      stack: ['NVIDIA HGX / A100 / H100', 'vLLM & Ray Serve', 'PyTorch Distributed', 'Venture Incubation', 'SOC2 Compliance', 'VC Demo Days'],
+      badge: 'YEAR 04 • VENTURE & INFRASTRUCTURE SCALE',
+      title: 'Bare Metal Compute & Startup Incubation',
+      desc: 'Senior students entering the Polaris Venture Track tap into the $800,000 Student Startup Credit Grant. They provision dedicated Bare Metal Compute and High Frequency Compute clusters on Vultr for high-concurrency systems, autonomous services, and SaaS market scale.',
+      stack: ['Bare Metal Compute', 'High Frequency Compute', 'Kubernetes Clusters', 'Venture Incubation', 'SOC2 Compliance', 'VC Demo Days'],
       highlight: 'Transforming college capstones into venture-backed tech startups with up to $25k in dedicated Vultr credits.',
       terminalCode: [
-        { type: 'command', text: 'nvidia-smi --query-gpu=name,memory.total,utilization.gpu' },
-        { type: 'response', text: 'GPU 0: NVIDIA A100-SXM4-80GB | Memory: 81920 MiB | Util: 98%' },
-        { type: 'response', text: 'GPU 1: NVIDIA A100-SXM4-80GB | Memory: 81920 MiB | Util: 97%' },
+        { type: 'command', text: 'vultr-cli bare-metal status --id bmc-prod-01' },
+        { type: 'response', text: 'Server: Bare Metal Compute | CPU: 32 Cores / 64 Threads | RAM: 256GB' },
+        { type: 'response', text: 'Network: 10Gbps Bonded | Status: Running | Health: 100%' },
         { type: 'command', text: 'startup-grant-status --org polaris-vcs' },
         { type: 'gold', text: 'Grant Status: ACTIVE (Funded via Vultr $800k Startup Pool)' },
         { type: 'green', text: 'Available Venture Credits: $24,850 USD | Tier: Seed Accelerator' }
       ],
       metrics: [
         { val: '$800K', lbl: 'Startup Grant Pool' },
-        { val: 'HGX/A100', lbl: 'Dedicated GPU Pods' },
+        { val: 'Bare Metal', lbl: 'Dedicated Compute' },
         { val: '100%', lbl: 'Founder Equity' }
       ]
     }
@@ -108,7 +108,7 @@ export default function CurriculumRoadmap() {
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
             Integrated natively into the Polaris undergraduate curriculum before the August 2026 launch. 
-            Complexity builds progressively across all four years, taking students from single VMs to high-scale GPU clusters.
+            Complexity builds progressively across all four years, taking students from single VMs to high-performance Bare Metal Compute clusters.
           </p>
         </div>
 
@@ -133,7 +133,7 @@ export default function CurriculumRoadmap() {
                 {item.year === 1 && 'Linux & Containers'}
                 {item.year === 2 && 'Kubernetes (VKE)'}
                 {item.year === 3 && 'Edge Systems & OJT'}
-                {item.year === 4 && 'Cloud GPUs & Startups'}
+                {item.year === 4 && 'Bare Metal & Startups'}
               </div>
             </button>
           ))}
@@ -165,7 +165,7 @@ export default function CurriculumRoadmap() {
                   {current.stack.map((tech, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 sm:px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] sm:text-xs font-mono text-zinc-300 hover:border-[#ffcc3f] hover:text-[#ffcc3f] transition-colors"
+                      className="px-2.5 sm:px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] sm:text-xs font-mono text-zinc-300 hover:border-[#007BFC] hover:text-[#007BFC] transition-colors"
                     >
                       {tech}
                     </span>
@@ -193,7 +193,7 @@ export default function CurriculumRoadmap() {
                       polaris-cloud@vultr-node-y{current.year}:~
                     </span>
                   </div>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#ffcc3f] tracking-wider uppercase font-semibold">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#007BFC] bg-[#007BFC]/10 border border-[#007BFC]/30 px-2 py-0.5 rounded tracking-wider uppercase font-semibold">
                     VULTR CLI V3.4
                   </span>
                 </div>

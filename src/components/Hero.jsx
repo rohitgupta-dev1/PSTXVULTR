@@ -29,11 +29,11 @@ export default function Hero({ onOpenGrantModal }) {
     <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 overflow-hidden" id="hero">
       {/* Dynamic ambient background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#ffcc3f]/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-      <div className="absolute top-1/3 right-10 w-[500px] h-[400px] bg-[#007BFC]/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+      <div className="absolute top-1/3 right-10 w-[550px] h-[450px] bg-[#007BFC]/15 rounded-full blur-[160px] pointer-events-none -z-10"></div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center flex flex-col items-center">
         {/* Brand Showcase Banner */}
-        <div className="mb-6 px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 shadow-xl inline-flex items-center gap-2.5 sm:gap-3 backdrop-blur-md max-w-full">
+        <div className="mb-6 px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-[#007BFC]/40 shadow-xl inline-flex items-center gap-2.5 sm:gap-3 backdrop-blur-md max-w-full transition-all">
           <DualBrandLockup className="h-5 sm:h-7" />
         </div>
 
@@ -43,13 +43,21 @@ export default function Hero({ onOpenGrantModal }) {
           <span className="text-[#ffcc3f] relative inline-block drop-shadow-[0_0_35px_rgba(255,204,63,0.35)] font-bold">
             $1.5M Grant
           </span>{' '}
-          in Vultr Cloud Infrastructure
+          in <span className="text-[#007BFC] font-semibold">Vultr</span> Cloud Infrastructure
         </h1>
 
         {/* Subtitle */}
         <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mb-8 sm:mb-12 leading-relaxed font-normal px-2">
-          Polaris School of Technology joins forces with <strong className="text-white font-medium">Vultr</strong> to 
-          fund undergraduate engineers with direct cloud credits, venture acceleration grants, and a groundbreaking 
+          Polaris School of Technology joins forces with{' '}
+          <a 
+            href="https://vultr.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[#007BFC] hover:text-[#38a0ff] font-semibold transition-colors hover:underline"
+          >
+            Vultr
+          </a>{' '}
+          to fund undergraduate engineers with direct cloud credits, venture acceleration grants, and a groundbreaking 
           4-year compounding cloud deployment curriculum.
         </p>
 
@@ -81,7 +89,7 @@ export default function Hero({ onOpenGrantModal }) {
         </div>
 
         {/* Real Polaris Campus Visual Image Showcase */}
-        <div className="w-full rounded-2xl sm:rounded-3xl bg-zinc-950 border border-zinc-800 p-1.5 sm:p-3 overflow-hidden shadow-2xl relative group">
+        <div className="w-full rounded-2xl sm:rounded-3xl bg-zinc-950 border border-zinc-800 p-1.5 sm:p-3 overflow-hidden shadow-2xl relative group hover:border-zinc-700 transition-all">
           <div className="relative rounded-xl sm:rounded-2xl overflow-hidden">
             <img 
               src="/images/polaris_hero_real.webp" 
@@ -90,11 +98,13 @@ export default function Hero({ onOpenGrantModal }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-4 sm:p-8">
               <div className="text-left space-y-1 sm:space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30 text-[#ffcc3f] text-[10px] sm:text-xs font-mono font-semibold uppercase">
-                  <span>● Official Polaris Campus Showcase</span>
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-zinc-950/90 border border-zinc-700/80 text-[10px] sm:text-xs font-mono font-semibold uppercase backdrop-blur-md">
+                  <span className="text-[#ffcc3f]">● Official Polaris Campus Showcase</span>
+                  <span className="text-zinc-500">|</span>
+                  <span className="text-[#007BFC]">Powered by Vultr</span>
                 </div>
                 <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white tracking-tight">
-                  Polaris School of Technology × Vultr Infrastructure Hub
+                  Polaris School of Technology <span className="text-zinc-500">×</span> <span className="text-[#007BFC]">Vultr</span> Infrastructure Hub
                 </h3>
               </div>
             </div>

@@ -73,10 +73,10 @@ export default function AllianceBlueprint() {
                   <span className="font-mono text-sm font-semibold text-[#ffcc3f] mt-0.5 shrink-0">03</span>
                   <div>
                     <h4 className="text-white font-semibold text-sm sm:text-base mb-1">
-                      Global Edge Network & GPU Cloud Access
+                      Global Edge Network & Bare Metal Cloud Access
                     </h4>
                     <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                      Instant student provisioning across 32+ worldwide data centers, Vultr Kubernetes Engine (VKE), bare-metal instances, and NVIDIA GPU clusters.
+                      Instant student provisioning across 33 worldwide data centers, Vultr Kubernetes Engine (VKE), Bare Metal Compute, and High Frequency Compute instances.
                     </p>
                   </div>
                 </div>

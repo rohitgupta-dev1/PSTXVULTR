@@ -16,7 +16,7 @@ export default function FundingPillars({ onOpenGrantModal }) {
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
             Engineered so zero Polaris students ever pay out-of-pocket for server infrastructure, while 
-            high-velocity student founders gain enterprise GPU and Kubernetes runway.
+            high-velocity student founders gain enterprise Bare Metal Compute and Kubernetes runway.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default function FundingPillars({ onOpenGrantModal }) {
               {/* Feature Checklist */}
               <div className="space-y-2.5 sm:space-y-3 mb-8 sm:mb-10">
                 {[
-                  'NVIDIA A100 & H100 Cloud GPU clusters for training & inference',
+                  'Bare Metal Compute & High Frequency Compute clusters for scale',
                   '100% founder equity retained (zero dilution from cloud grant)',
                   'Direct architectural advisement from Vultr Solutions Architects',
                   'Priority presentation at Polaris Demo Days to angel & VC funds'

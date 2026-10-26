@@ -23,7 +23,7 @@ export default function FaqSection() {
     },
     {
       q: 'Can students access GPUs for machine learning and AI?',
-      a: 'Yes. While Year 1 and 2 focus on Linux compute and Kubernetes, students in Year 3 (OJT) and Year 4 (Venture & AI Track) have direct access to NVIDIA Cloud GPU clusters on Vultr, funded through their base allowances or the $800,000 startup grant pool.'
+      a: 'No. General GPU access is not available to students. Across all four years, students build and deploy on Vultr cloud infrastructure such as Bare Metal Compute and High Frequency Compute, with Linux, containers and Kubernetes.'
     }
   ];
 

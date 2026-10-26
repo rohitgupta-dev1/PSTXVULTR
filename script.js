@@ -247,8 +247,8 @@ function initCalculator() {
       periodText = 'Venture Grant';
       ruleText = `Funded via $800,000 Student Startup Credit Grant ($200k/yr pool). Section 1(b).`;
       poolSource = '$800,000 Student Startup Grant Pool';
-      computeText = selectedInfra === 'gpu' 
-        ? 'NVIDIA A100 / L40S Fractional GPU Pods + PyTorch Cluster'
+      computeText = selectedInfra === 'baremetal' 
+        ? 'High Frequency Compute & Bare Metal Compute Nodes'
         : 'Enterprise High-Concurrency VKE Cluster';
       nodesText = '8x High-Memory Compute Nodes + Managed HA DB';
       bandwidthText = '25 TB Global Edge CDN Transfer';
@@ -258,14 +258,14 @@ function initCalculator() {
       periodText = 'Championship Purse';
       ruleText = `Awarded from the Vultr-sponsored Hackathon & Competition Credit Grant.`;
       poolSource = '$800,000 Startup & Hackathon Reserve';
-      computeText = 'Instant Cloud Compute & GPU Acceleration Pods';
+      computeText = 'Instant High Frequency Compute & Bare Metal Compute Pods';
       nodesText = '4x Multi-Zone Production Instances';
       bandwidthText = '15 TB High-Velocity Pipeline Transfer';
     }
 
-    // Dynamic adjustment if GPU is picked
-    if (selectedInfra === 'gpu' && track !== 'startup') {
-      computeText = 'High-Speed CUDA Compute with fractional GPU burst capability';
+    // Dynamic adjustment if baremetal is picked
+    if (selectedInfra === 'baremetal' && track !== 'startup') {
+      computeText = 'High-Speed Bare Metal Compute with high-throughput network burst';
     }
 
     // Update UI
