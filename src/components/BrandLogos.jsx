@@ -26,9 +26,9 @@ export function VultrLogo({ className = "h-8" }) {
 
 export function DualBrandLockup({ className = "h-7" }) {
   return (
-    <div className="flex items-center gap-2.5 sm:gap-3">
+    <div className="flex items-center gap-2 sm:gap-2.5">
       <PolarisLogo className={className} />
-      <span className="text-zinc-600 text-xs font-mono select-none">✕</span>
+      <span className="text-zinc-500 text-xs font-mono select-none">✕</span>
       <VultrLogo className={className} />
     </div>
   );

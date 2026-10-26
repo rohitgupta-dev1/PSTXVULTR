@@ -41,13 +41,13 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-6 pt-2.5 sm:pt-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
       <div 
-        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-3.5 sm:px-6 py-2 sm:py-3 flex items-center justify-between ${
+        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between ${
           isLight
             ? scrolled
-              ? 'bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-300/40'
-              : 'bg-white/80 backdrop-blur-md border border-slate-200/70 shadow-md'
+              ? 'bg-white/95 backdrop-blur-xl border border-slate-300 shadow-[0_10px_35px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)]'
+              : 'bg-white/95 backdrop-blur-xl border border-slate-300 shadow-[0_6px_25px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.04)]'
             : scrolled 
               ? 'bg-zinc-950/90 backdrop-blur-xl border border-zinc-800/80 shadow-2xl shadow-black/80' 
               : 'bg-zinc-950/80 backdrop-blur-md border border-zinc-900/80 shadow-lg'
@@ -55,8 +55,15 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
       >
         {/* Brand Group */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <a href="#hero" className="flex items-center gap-2 group">
-            <DualBrandLockup theme={theme} className="h-5 sm:h-6 md:h-7" />
+          <a 
+            href="#hero" 
+            className={`flex items-center transition-all ${
+              isLight 
+                ? 'bg-slate-950 border border-slate-800 hover:border-[#007BFC]/60 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full shadow-sm hover:shadow-md' 
+                : 'hover:opacity-90'
+            }`}
+          >
+            <DualBrandLockup className="h-4 sm:h-5 md:h-5.5" />
           </a>
         </div>
 
@@ -68,11 +75,11 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
               <a 
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium tracking-wider transition-all whitespace-nowrap ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all whitespace-nowrap ${
                   isLight
                     ? isActive 
-                      ? 'bg-blue-50 text-[#007BFC] border border-blue-200/80 shadow-sm font-semibold' 
-                      : 'text-slate-600 hover:text-[#007BFC] hover:bg-slate-100/70'
+                      ? 'bg-[#007BFC]/12 text-[#007BFC] border border-[#007BFC]/40 shadow-xs' 
+                      : 'text-slate-800 hover:text-[#007BFC] hover:bg-slate-100'
                     : isActive 
                       ? 'bg-zinc-800/90 text-[#ffcc3f] border border-zinc-700/60 shadow-sm' 
                       : 'text-zinc-400 hover:text-white hover:bg-zinc-900/60'
@@ -94,7 +101,7 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
               title={isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
               className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border transition-all ${
                 isLight 
-                  ? 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700 hover:text-[#007BFC]' 
+                  ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800 hover:text-[#007BFC] shadow-xs' 
                   : 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-zinc-300 hover:text-[#ffcc3f]'
               }`}
             >
@@ -104,7 +111,7 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
 
           <button 
             onClick={onOpenGrantModal}
-            className="hidden sm:inline-flex px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_0_20px_rgba(255,204,63,0.3)] hover:shadow-[0_0_25px_rgba(255,204,63,0.45)] transition-all transform hover:scale-105 items-center gap-1 sm:gap-1.5 whitespace-nowrap"
+            className="hidden sm:inline-flex px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold tracking-wider text-black bg-[#ffcc3f] hover:bg-[#f5bd23] shadow-[0_2px_12px_rgba(255,204,63,0.4)] hover:shadow-[0_4px_18px_rgba(255,204,63,0.55)] border border-[#eab308]/60 transition-all transform hover:scale-105 items-center gap-1 sm:gap-1.5 whitespace-nowrap"
           >
             <span>Apply Grants</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -115,7 +122,7 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`lg:hidden w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border transition-colors ${
               isLight
-                ? 'text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border-slate-200'
+                ? 'text-slate-800 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border-slate-300'
                 : 'text-zinc-300 hover:text-white bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800'
             }`}
             aria-label="Toggle navigation menu"
@@ -129,7 +136,7 @@ export default function Navbar({ onOpenGrantModal, theme = 'light', onToggleThem
       {mobileMenuOpen && (
         <div className={`lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl p-4 sm:p-5 flex flex-col gap-3 shadow-2xl animate-in slide-in-from-top-2 duration-200 border ${
           isLight
-            ? 'bg-white/98 backdrop-blur-2xl border-slate-200 text-slate-800'
+            ? 'bg-white/98 backdrop-blur-2xl border-slate-300 text-slate-800 shadow-[0_12px_40px_rgba(0,0,0,0.15)]'
             : 'bg-zinc-950/98 backdrop-blur-2xl border-zinc-800 text-zinc-100'
         }`}>
           <nav className="flex flex-col gap-1">
