@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-export default function FaqSection() {
+export default function FaqSection({ theme = 'light' }) {
   const [openIndex, setOpenIndex] = useState(0);
+  const isLight = theme === 'light';
 
   const faqs = [
     {
@@ -28,16 +29,20 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 relative z-10" id="faq">
+    <section className="py-16 sm:py-24 relative z-10 transition-colors duration-300" id="faq">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase mb-3 inline-block">
+          <span className="text-xs font-mono font-semibold tracking-widest text-[#007BFC] bg-[#007BFC]/10 border border-[#007BFC]/30 px-3 py-1 rounded-full uppercase mb-3 inline-block">
             PARTNERSHIP CHARTER FAQ
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
+            isLight ? 'text-slate-900' : 'text-white'
+          }`}>
             Frequently Asked Questions
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
+          <p className={`text-sm sm:text-base md:text-lg font-normal ${
+            isLight ? 'text-slate-600' : 'text-zinc-400'
+          }`}>
             Key policies and procedural guidelines for students, faculty, and student founders.
           </p>
         </div>
@@ -50,24 +55,40 @@ export default function FaqSection() {
                 key={idx}
                 className={`rounded-xl sm:rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen 
-                    ? 'bg-zinc-900 border-[#ffcc3f]' 
-                    : 'bg-zinc-950 border-zinc-800/80 hover:border-zinc-700'
+                    ? isLight
+                      ? 'bg-white border-[#007BFC] shadow-[0_4px_20px_rgba(0,123,252,0.1)]'
+                      : 'bg-zinc-900 border-[#ffcc3f]' 
+                    : isLight
+                      ? 'bg-white/80 border-slate-200 hover:border-slate-300'
+                      : 'bg-zinc-950 border-zinc-800/80 hover:border-zinc-700'
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full p-4 sm:p-6 text-left flex items-start sm:items-center justify-between gap-3 sm:gap-4"
                 >
-                  <span className="font-semibold text-sm sm:text-base md:text-lg text-white">
+                  <span className={`font-semibold text-sm sm:text-base md:text-lg ${
+                    isOpen
+                      ? isLight ? 'text-[#007BFC]' : 'text-[#ffcc3f]'
+                      : isLight ? 'text-slate-900' : 'text-white'
+                  }`}>
                     {faq.q}
                   </span>
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-800/80 flex items-center justify-center text-[#ffcc3f] shrink-0 transition-transform duration-300 mt-0.5 sm:mt-0 ${isOpen ? 'rotate-180 bg-[#ffcc3f]/20' : ''}`}>
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 mt-0.5 sm:mt-0 ${
+                    isLight 
+                      ? isOpen ? 'rotate-180 bg-[#007BFC]/15 text-[#007BFC]' : 'bg-slate-100 text-slate-600'
+                      : isOpen ? 'rotate-180 bg-[#ffcc3f]/20 text-[#ffcc3f]' : 'bg-zinc-800/80 text-[#ffcc3f]'
+                  }`}>
                     <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60 pt-3 sm:pt-4 font-normal">
+                  <div className={`px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm leading-relaxed border-t pt-3 sm:pt-4 font-normal ${
+                    isLight
+                      ? 'text-slate-600 border-slate-100'
+                      : 'text-zinc-300 border-zinc-800/60'
+                  }`}>
                     {faq.a}
                   </div>
                 )}

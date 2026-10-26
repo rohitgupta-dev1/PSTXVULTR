@@ -1,7 +1,8 @@
 import React from 'react';
 import { Zap, Layers, Globe, Shield, Database } from 'lucide-react';
 
-export default function VultrSpecs() {
+export default function VultrSpecs({ theme = 'light' }) {
+  const isLight = theme === 'light';
   const specs = [
     {
       icon: Zap,
@@ -31,16 +32,25 @@ export default function VultrSpecs() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-zinc-950/90 border-y border-zinc-900 relative z-10" id="infrastructure">
+    <section 
+      className={`py-16 sm:py-24 border-y relative z-10 transition-colors duration-300 ${
+        isLight ? 'bg-white/70 border-slate-200' : 'bg-zinc-950/90 border-zinc-900'
+      }`} 
+      id="infrastructure"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-mono font-semibold tracking-widest text-[#007BFC] bg-[#007BFC]/10 border border-[#007BFC]/30 px-3 py-1 rounded-full uppercase mb-3 inline-block">
             ENTERPRISE FOUNDATION • VULTR CLOUD
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
+            isLight ? 'text-slate-900' : 'text-white'
+          }`}>
             The Vultr Global Advantage
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
+          <p className={`text-sm sm:text-base md:text-lg font-normal ${
+            isLight ? 'text-slate-600' : 'text-zinc-400'
+          }`}>
             Polaris students build on the same robust, battle-tested cloud trusted by millions of developers worldwide.
           </p>
         </div>
@@ -57,13 +67,29 @@ export default function VultrSpecs() {
             return (
               <div 
                 key={idx}
-                className={`p-5 sm:p-7 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[#007BFC] hover:shadow-[0_0_30px_rgba(0,123,252,0.15)] transition-all duration-300 hover:-translate-y-1 group ${lgColSpan} ${mdColSpan}`}
+                className={`p-5 sm:p-7 rounded-2xl border transition-all duration-300 hover:-translate-y-1 group ${lgColSpan} ${mdColSpan} ${
+                  isLight 
+                    ? 'bg-white border-slate-200/90 shadow-sm hover:border-[#007BFC] hover:shadow-[0_12px_32px_rgba(0,123,252,0.12)]' 
+                    : 'bg-zinc-900/60 border-zinc-800 hover:border-[#007BFC] hover:shadow-[0_0_30px_rgba(0,123,252,0.15)]'
+                }`}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-zinc-800/80 border border-zinc-700/60 group-hover:border-[#007BFC]/40 group-hover:bg-[#007BFC]/10 group-hover:text-[#007BFC] flex items-center justify-center text-[#ffcc3f] mb-4 sm:mb-5 group-hover:scale-110 transition-all">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-all ${
+                  isLight 
+                    ? 'bg-[#007BFC]/10 border border-[#007BFC]/25 text-[#007BFC] group-hover:bg-[#007BFC] group-hover:text-white' 
+                    : 'bg-zinc-800/80 border border-zinc-700/60 text-[#ffcc3f] group-hover:border-[#007BFC]/40 group-hover:bg-[#007BFC]/10 group-hover:text-[#007BFC]'
+                }`}>
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <h4 className="text-base sm:text-lg font-semibold text-white mb-2">{item.title}</h4>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">{item.desc}</p>
+                <h4 className={`text-base sm:text-lg font-semibold mb-2 ${
+                  isLight ? 'text-slate-900' : 'text-white'
+                }`}>
+                  {item.title}
+                </h4>
+                <p className={`text-xs sm:text-sm leading-relaxed font-normal ${
+                  isLight ? 'text-slate-600' : 'text-zinc-400'
+                }`}>
+                  {item.desc}
+                </p>
               </div>
             );
           })}

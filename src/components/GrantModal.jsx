@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { X, Sparkles, Rocket, CheckCircle2, Download, Trash2, Inbox, ArrowLeft } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function GrantModal({ isOpen, onClose }) {
+export default function GrantModal({ theme = 'light', isOpen, onClose }) {
+  const isLight = theme === 'light';
   const [submitted, setSubmitted] = useState(false);
   const [viewResponses, setViewResponses] = useState(false);
   const [submissions, setSubmissions] = useState([]);
@@ -54,7 +55,7 @@ export default function GrantModal({ isOpen, onClose }) {
       particleCount: 100,
       spread: 80,
       origin: { y: 0.6 },
-      colors: ['#ffcc3f', '#ffffff', '#007BFC']
+      colors: ['#ffcc3f', '#007BFC', '#38bdf8']
     });
   };
 
@@ -93,20 +94,28 @@ export default function GrantModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl shadow-black max-h-[92vh] overflow-y-auto"
+        className={`relative w-full max-w-2xl rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl max-h-[92vh] overflow-y-auto border transition-all ${
+          isLight 
+            ? 'bg-white border-slate-200 shadow-slate-900/20 text-slate-800' 
+            : 'bg-zinc-950 border-zinc-800 shadow-black text-zinc-100'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Controls */}
-        <div className="flex items-center justify-between gap-2 mb-5 sm:mb-6 pb-3 sm:pb-4 border-b border-zinc-900">
+        <div className={`flex items-center justify-between gap-2 mb-5 sm:mb-6 pb-3 sm:pb-4 border-b ${
+          isLight ? 'border-slate-200' : 'border-zinc-900'
+        }`}>
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <button
               onClick={() => { setViewResponses(false); setSubmitted(false); }}
               className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all ${
                 !viewResponses 
-                  ? 'bg-[#ffcc3f] text-black' 
-                  : 'bg-zinc-900 text-zinc-400 hover:text-white'
+                  ? 'bg-[#ffcc3f] text-black shadow-sm' 
+                  : isLight 
+                    ? 'bg-slate-100 text-slate-600 hover:text-slate-900' 
+                    : 'bg-zinc-900 text-zinc-400 hover:text-white'
               }`}
             >
               Application Form
@@ -115,8 +124,10 @@ export default function GrantModal({ isOpen, onClose }) {
               onClick={() => setViewResponses(true)}
               className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-semibold flex items-center gap-1.5 transition-all ${
                 viewResponses 
-                  ? 'bg-[#ffcc3f] text-black' 
-                  : 'bg-zinc-900 text-zinc-400 hover:text-white'
+                  ? 'bg-[#ffcc3f] text-black shadow-sm' 
+                  : isLight 
+                    ? 'bg-slate-100 text-slate-600 hover:text-slate-900' 
+                    : 'bg-zinc-900 text-zinc-400 hover:text-white'
               }`}
             >
               <Inbox className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
@@ -126,7 +137,9 @@ export default function GrantModal({ isOpen, onClose }) {
 
           <button 
             onClick={handleResetAndClose}
-            className="p-1.5 sm:p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors shrink-0"
+            className={`p-1.5 sm:p-2 rounded-full transition-colors shrink-0 ${
+              isLight ? 'text-slate-400 hover:text-slate-700 hover:bg-slate-100' : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+            }`}
           >
             <X className="w-5 h-5" />
           </button>
@@ -137,10 +150,10 @@ export default function GrantModal({ isOpen, onClose }) {
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">
+                <h3 className={`text-xl font-bold mb-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>
                   Submitted Grant Applications
                 </h3>
-                <p className="text-xs text-zinc-400">
+                <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-zinc-400'}`}>
                   Stored in local browser registry ({submissions.length} total entries)
                 </p>
               </div>
@@ -150,14 +163,22 @@ export default function GrantModal({ isOpen, onClose }) {
                   <>
                     <button
                       onClick={handleExportCSV}
-                      className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-[#ffcc3f] hover:border-[#ffcc3f] flex items-center gap-1.5"
+                      className={`px-3 py-1.5 rounded-lg border text-xs font-mono flex items-center gap-1.5 transition-all ${
+                        isLight 
+                          ? 'bg-white border-slate-200 text-[#007BFC] hover:border-[#007BFC] hover:bg-[#007BFC]/5' 
+                          : 'bg-zinc-900 border-zinc-800 text-[#ffcc3f] hover:border-[#ffcc3f]'
+                      }`}
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>Export CSV</span>
                     </button>
                     <button
                       onClick={handleClearSubmissions}
-                      className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-red-400"
+                      className={`p-1.5 rounded-lg border transition-colors ${
+                        isLight 
+                          ? 'bg-white border-slate-200 text-slate-400 hover:text-red-600' 
+                          : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-red-400'
+                      }`}
                       title="Clear All"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -168,24 +189,35 @@ export default function GrantModal({ isOpen, onClose }) {
             </div>
 
             {submissions.length === 0 ? (
-              <div className="text-center py-12 bg-zinc-900/40 rounded-2xl border border-zinc-800/60 p-6">
-                <Inbox className="w-10 h-10 text-zinc-600 mx-auto mb-3" />
-                <p className="text-sm text-zinc-400 font-medium">No form submissions received yet.</p>
-                <p className="text-xs text-zinc-500 mt-1">Submit the application form to test dynamic response recording.</p>
+              <div className={`text-center py-12 rounded-2xl border p-6 ${
+                isLight ? 'bg-slate-50 border-slate-200' : 'bg-zinc-900/40 border-zinc-800/60'
+              }`}>
+                <Inbox className={`w-10 h-10 mx-auto mb-3 ${isLight ? 'text-slate-400' : 'text-zinc-600'}`} />
+                <p className={`text-sm font-medium ${isLight ? 'text-slate-700' : 'text-zinc-400'}`}>No form submissions received yet.</p>
+                <p className={`text-xs mt-1 ${isLight ? 'text-slate-500' : 'text-zinc-500'}`}>Submit the application form to test dynamic response recording.</p>
               </div>
             ) : (
               <div className="space-y-3">
                 {submissions.map((sub) => (
-                  <div key={sub.id} className="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800 space-y-2 text-xs font-mono">
-                    <div className="flex items-center justify-between text-zinc-400 pb-2 border-b border-zinc-800/80">
-                      <span className="text-white font-bold text-sm">{sub.title}</span>
+                  <div 
+                    key={sub.id} 
+                    className={`p-4 rounded-xl border space-y-2 text-xs font-mono ${
+                      isLight 
+                        ? 'bg-slate-50 border-slate-200 text-slate-800' 
+                        : 'bg-zinc-900/70 border-zinc-800 text-zinc-200'
+                    }`}
+                  >
+                    <div className={`flex items-center justify-between pb-2 border-b ${
+                      isLight ? 'border-slate-200 text-slate-500' : 'border-zinc-800/80 text-zinc-400'
+                    }`}>
+                      <span className={`font-bold text-sm ${isLight ? 'text-slate-900' : 'text-white'}`}>{sub.title}</span>
                       <span className="text-[11px]">{sub.date}</span>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-zinc-300">
-                      <div><strong className="text-zinc-500">Email:</strong> {sub.email}</div>
-                      <div><strong className="text-zinc-500">Cohort:</strong> {sub.cohort}</div>
-                      <div><strong className="text-zinc-500">Tier:</strong> {sub.tier}</div>
-                      <div><strong className="text-zinc-500">Services:</strong> {sub.tech || 'N/A'}</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div><strong className={isLight ? 'text-slate-500' : 'text-zinc-500'}>Email:</strong> {sub.email}</div>
+                      <div><strong className={isLight ? 'text-slate-500' : 'text-zinc-500'}>Cohort:</strong> {sub.cohort}</div>
+                      <div><strong className={isLight ? 'text-slate-500' : 'text-zinc-500'}>Tier:</strong> {sub.tier}</div>
+                      <div><strong className={isLight ? 'text-slate-500' : 'text-zinc-500'}>Services:</strong> {sub.tech || 'N/A'}</div>
                     </div>
                   </div>
                 ))}
@@ -196,37 +228,45 @@ export default function GrantModal({ isOpen, onClose }) {
           /* View Mode 2: Submission Form */
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-mono font-semibold tracking-widest text-[#ffcc3f] uppercase px-3 py-1 rounded-full bg-[#ffcc3f]/10 border border-[#ffcc3f]/30">
+              <span className="text-xs font-mono font-semibold tracking-widest text-[#007BFC] bg-[#007BFC]/10 border border-[#007BFC]/30 uppercase px-3 py-1 rounded-full">
                 VENTURE GRANT APPLICATION
               </span>
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className={`text-2xl font-bold mb-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
               Apply for Vultr Startup Grant
             </h3>
-            <p className="text-zinc-400 text-sm mb-6 leading-relaxed font-normal">
-              Drawn from the dedicated <strong className="text-white font-medium">$800,000 four-year credit grant</strong> committed 
+            <p className={`text-sm mb-6 leading-relaxed font-normal ${isLight ? 'text-slate-600' : 'text-zinc-400'}`}>
+              Drawn from the dedicated <strong className={`font-medium ${isLight ? 'text-slate-900' : 'text-white'}`}>$800,000 four-year credit grant</strong> committed 
               by Vultr ($200,000/year) for Polaris student startups and hackathon winners.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono font-semibold text-zinc-400 uppercase mb-1.5">
+                <label className={`block text-xs font-mono font-semibold uppercase mb-1.5 ${
+                  isLight ? 'text-slate-600' : 'text-zinc-400'
+                }`}>
                   STARTUP / VENTURE TITLE
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Distributed Vector Store / HyperScale AI"
+                  placeholder="e.g. Distributed Vector Store / HyperScale Search"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
+                  className={`w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-colors border ${
+                    isLight 
+                      ? 'bg-slate-50 border-slate-200 text-slate-900 focus:border-[#007BFC] focus:bg-white' 
+                      : 'bg-zinc-900 border-zinc-800 text-white focus:border-[#ffcc3f]'
+                  }`}
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-semibold text-zinc-400 uppercase mb-1.5">
+                  <label className={`block text-xs font-mono font-semibold uppercase mb-1.5 ${
+                    isLight ? 'text-slate-600' : 'text-zinc-400'
+                  }`}>
                     FOUNDER ACADEMIC EMAIL
                   </label>
                   <input
@@ -235,18 +275,28 @@ export default function GrantModal({ isOpen, onClose }) {
                     placeholder="founder@student.polaris.edu"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
+                    className={`w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-colors border ${
+                      isLight 
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 focus:border-[#007BFC] focus:bg-white' 
+                        : 'bg-zinc-900 border-zinc-800 text-white focus:border-[#ffcc3f]'
+                    }`}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-semibold text-zinc-400 uppercase mb-1.5">
+                  <label className={`block text-xs font-mono font-semibold uppercase mb-1.5 ${
+                    isLight ? 'text-slate-600' : 'text-zinc-400'
+                  }`}>
                     ACADEMIC STAGE
                   </label>
                   <select
                     value={formData.cohort}
                     onChange={(e) => setFormData({ ...formData, cohort: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
+                    className={`w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-colors border ${
+                      isLight 
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 focus:border-[#007BFC] focus:bg-white' 
+                        : 'bg-zinc-900 border-zinc-800 text-white focus:border-[#ffcc3f]'
+                    }`}
                   >
                     <option>Year 3 (OJT / Pre-Incubator)</option>
                     <option>Year 4 (Venture Incubator)</option>
@@ -256,13 +306,19 @@ export default function GrantModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-semibold text-zinc-400 uppercase mb-1.5">
+                <label className={`block text-xs font-mono font-semibold uppercase mb-1.5 ${
+                  isLight ? 'text-slate-600' : 'text-zinc-400'
+                }`}>
                   REQUESTED GRANT TIER
                 </label>
                 <select
                   value={formData.tier}
                   onChange={(e) => setFormData({ ...formData, tier: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
+                  className={`w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-colors border ${
+                    isLight 
+                      ? 'bg-slate-50 border-slate-200 text-slate-900 focus:border-[#007BFC] focus:bg-white' 
+                      : 'bg-zinc-900 border-zinc-800 text-white focus:border-[#ffcc3f]'
+                  }`}
                 >
                   <option>$25,000 Venture Grant (Bare Metal & High Frequency Compute Clusters)</option>
                   <option>$15,000 Scale Tier (High-Concurrency Kubernetes / DBs)</option>
@@ -272,7 +328,9 @@ export default function GrantModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-semibold text-zinc-400 uppercase mb-1.5">
+                <label className={`block text-xs font-mono font-semibold uppercase mb-1.5 ${
+                  isLight ? 'text-slate-600' : 'text-zinc-400'
+                }`}>
                   PRIMARY VULTR SERVICES INTENDED
                 </label>
                 <textarea
@@ -280,7 +338,11 @@ export default function GrantModal({ isOpen, onClose }) {
                   placeholder="e.g. Vultr Kubernetes Engine, Bare Metal Compute, Managed PostgreSQL, Global Object Storage..."
                   value={formData.tech}
                   onChange={(e) => setFormData({ ...formData, tech: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#ffcc3f] transition-colors"
+                  className={`w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-colors border ${
+                    isLight 
+                      ? 'bg-slate-50 border-slate-200 text-slate-900 focus:border-[#007BFC] focus:bg-white' 
+                      : 'bg-zinc-900 border-zinc-800 text-white focus:border-[#ffcc3f]'
+                  }`}
                 ></textarea>
               </div>
 
@@ -298,19 +360,21 @@ export default function GrantModal({ isOpen, onClose }) {
         ) : (
           /* View Mode 3: Submission Confirmation */
           <div className="text-center py-6 space-y-5">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-400 mx-auto">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-500 mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <h3 className="text-2xl font-bold text-white">Application Received & Recorded!</h3>
-            <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed font-normal">
-              Your startup grant request for <strong className="text-[#ffcc3f]">{formData.title}</strong> has been logged 
+            <h3 className={`text-2xl font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>Application Received & Recorded!</h3>
+            <p className={`text-sm max-w-md mx-auto leading-relaxed font-normal ${isLight ? 'text-slate-600' : 'text-zinc-300'}`}>
+              Your startup grant request for <strong className="text-[#007BFC]">{formData.title}</strong> has been logged 
               into the Polaris Incubator & Vultr partnership evaluation pipeline.
             </p>
 
-            <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400 max-w-sm mx-auto">
+            <div className={`p-4 rounded-xl border text-xs font-mono max-w-sm mx-auto ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-600' : 'bg-zinc-900 border-zinc-800 text-zinc-400'
+            }`}>
               <div>Review Cadence: 3-5 Business Days</div>
-              <div className="text-[#ffcc3f] mt-1">Status: SAVED IN RESPONSES INBOX</div>
+              <div className="text-[#007BFC] font-semibold mt-1">Status: SAVED IN RESPONSES INBOX</div>
             </div>
 
             <div className="flex justify-center gap-3">
@@ -318,7 +382,7 @@ export default function GrantModal({ isOpen, onClose }) {
                 onClick={() => setViewResponses(true)}
                 className="btn btn-secondary flex items-center gap-2 !py-2.5 !px-5 text-xs"
               >
-                <Inbox className="w-4 h-4 text-[#ffcc3f]" />
+                <Inbox className="w-4 h-4 text-[#007BFC]" />
                 <span>View All Received Responses</span>
               </button>
               <button

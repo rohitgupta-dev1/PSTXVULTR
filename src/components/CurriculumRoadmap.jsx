@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Terminal, Layers, Network, Cpu, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
-export default function CurriculumRoadmap() {
+export default function CurriculumRoadmap({ theme = 'light' }) {
   const [activeYear, setActiveYear] = useState(1);
+  const isLight = theme === 'light';
 
   const curriculumYears = [
     {
@@ -97,16 +98,20 @@ export default function CurriculumRoadmap() {
   const current = curriculumYears.find(c => c.year === activeYear);
 
   return (
-    <section className="py-16 sm:py-24 relative z-10" id="curriculum">
+    <section className="py-16 sm:py-24 relative z-10 transition-colors duration-300" id="curriculum">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ffcc3f] uppercase mb-3 inline-block">
             PEDAGOGICAL EXCELLENCE • AUGUST 2026 LAUNCH
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
+            isLight ? 'text-slate-900' : 'text-white'
+          }`}>
             4-Year Compounding Cloud Deployment Module
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-normal">
+          <p className={`text-sm sm:text-base md:text-lg font-normal ${
+            isLight ? 'text-slate-600' : 'text-zinc-400'
+          }`}>
             Integrated natively into the Polaris undergraduate curriculum before the August 2026 launch. 
             Complexity builds progressively across all four years, taking students from single VMs to high-performance Bare Metal Compute clusters.
           </p>
@@ -114,33 +119,48 @@ export default function CurriculumRoadmap() {
 
         {/* Year Tabs */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
-          {curriculumYears.map(item => (
-            <button
-              key={item.year}
-              onClick={() => setActiveYear(item.year)}
-              className={`p-3 sm:p-4 rounded-xl text-left border transition-all duration-200 ${
-                activeYear === item.year
-                  ? 'bg-zinc-900 border-[#ffcc3f] shadow-[0_0_20px_rgba(255,204,63,0.15)] translate-y-[-2px]'
-                  : 'bg-zinc-950/80 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-900/40'
-              }`}
-            >
-              <div className={`text-[10px] sm:text-xs font-mono font-semibold tracking-wider mb-0.5 sm:mb-1 ${
-                activeYear === item.year ? 'text-[#ffcc3f]' : 'text-zinc-500'
-              }`}>
-                YEAR 0{item.year}
-              </div>
-              <div className="text-xs sm:text-sm font-semibold text-white truncate">
-                {item.year === 1 && 'Linux & Containers'}
-                {item.year === 2 && 'Kubernetes (VKE)'}
-                {item.year === 3 && 'Edge Systems & OJT'}
-                {item.year === 4 && 'Bare Metal & Startups'}
-              </div>
-            </button>
-          ))}
+          {curriculumYears.map(item => {
+            const isTabActive = activeYear === item.year;
+            return (
+              <button
+                key={item.year}
+                onClick={() => setActiveYear(item.year)}
+                className={`p-3 sm:p-4 rounded-xl text-left border transition-all duration-200 ${
+                  isTabActive
+                    ? isLight
+                      ? 'bg-white border-[#007BFC] shadow-[0_4px_20px_rgba(0,123,252,0.15)] translate-y-[-2px]'
+                      : 'bg-zinc-900 border-[#ffcc3f] shadow-[0_0_20px_rgba(255,204,63,0.15)] translate-y-[-2px]'
+                    : isLight
+                      ? 'bg-white/80 border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-white'
+                      : 'bg-zinc-950/80 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-900/40'
+                }`}
+              >
+                <div className={`text-[10px] sm:text-xs font-mono font-semibold tracking-wider mb-0.5 sm:mb-1 ${
+                  isTabActive 
+                    ? isLight ? 'text-[#007BFC]' : 'text-[#ffcc3f]'
+                    : isLight ? 'text-slate-400' : 'text-zinc-500'
+                }`}>
+                  YEAR 0{item.year}
+                </div>
+                <div className={`text-xs sm:text-sm font-semibold truncate ${
+                  isLight ? 'text-slate-900' : 'text-white'
+                }`}>
+                  {item.year === 1 && 'Linux & Containers'}
+                  {item.year === 2 && 'Kubernetes (VKE)'}
+                  {item.year === 3 && 'Edge Systems & OJT'}
+                  {item.year === 4 && 'Bare Metal & Startups'}
+                </div>
+              </button>
+            );
+          })}
         </div>
 
         {/* Active Year Detail Panel */}
-        <div className="rounded-2xl sm:rounded-3xl bg-zinc-950 border border-zinc-800 p-5 sm:p-8 md:p-12 shadow-2xl">
+        <div className={`rounded-2xl sm:rounded-3xl border p-5 sm:p-8 md:p-12 transition-all duration-300 ${
+          isLight 
+            ? 'bg-white border-slate-200 shadow-xl shadow-slate-200/50' 
+            : 'bg-zinc-950 border-zinc-800 shadow-2xl'
+        }`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Column: Theory & Stack */}
             <div className="lg:col-span-6 space-y-4 sm:space-y-6">
@@ -148,24 +168,34 @@ export default function CurriculumRoadmap() {
                 {current.badge}
               </span>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-tight">
+              <h3 className={`text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight ${
+                isLight ? 'text-slate-900' : 'text-white'
+              }`}>
                 {current.title}
               </h3>
 
-              <p className="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
+              <p className={`text-xs sm:text-sm md:text-base leading-relaxed font-normal ${
+                isLight ? 'text-slate-600' : 'text-zinc-300'
+              }`}>
                 {current.desc}
               </p>
 
               {/* Stack Tags */}
               <div>
-                <span className="block text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-zinc-500 mb-2.5 sm:mb-3 uppercase">
+                <span className={`block text-[11px] sm:text-xs font-mono font-semibold tracking-wider mb-2.5 sm:mb-3 uppercase ${
+                  isLight ? 'text-slate-500' : 'text-zinc-500'
+                }`}>
                   INTEGRATED VULTR TECH STACK:
                 </span>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {current.stack.map((tech, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 sm:px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] sm:text-xs font-mono text-zinc-300 hover:border-[#007BFC] hover:text-[#007BFC] transition-colors"
+                      className={`px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-colors ${
+                        isLight
+                          ? 'bg-slate-50 border border-slate-200 text-slate-700 hover:border-[#007BFC] hover:text-[#007BFC]'
+                          : 'bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-[#007BFC] hover:text-[#007BFC]'
+                      }`}
                     >
                       {tech}
                     </span>
@@ -174,7 +204,11 @@ export default function CurriculumRoadmap() {
               </div>
 
               {/* Highlight Quote */}
-              <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900/60 border-l-4 border-[#ffcc3f] text-xs sm:text-sm text-zinc-300 italic font-normal">
+              <div className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-[#ffcc3f] text-xs sm:text-sm italic font-normal ${
+                isLight 
+                  ? 'bg-amber-50/70 text-slate-700 border-l-[#ffcc3f]' 
+                  : 'bg-zinc-900/60 text-zinc-300 border-l-[#ffcc3f]'
+              }`}>
                 “{current.highlight}”
               </div>
             </div>
@@ -182,14 +216,14 @@ export default function CurriculumRoadmap() {
             {/* Right Column: Simulated Terminal & KPIs */}
             <div className="lg:col-span-6 space-y-3.5 sm:space-y-4">
               {/* Terminal Window */}
-              <div className="rounded-xl sm:rounded-2xl bg-[#09090b] border border-zinc-800 overflow-hidden shadow-2xl">
+              <div className="rounded-xl sm:rounded-2xl bg-[#090d16] border border-slate-800 overflow-hidden shadow-2xl">
                 {/* Title Bar */}
-                <div className="bg-zinc-900 px-3 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between border-b border-zinc-800">
+                <div className="bg-[#0e1422] px-3 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between border-b border-slate-800">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-500/80"></span>
                     <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-yellow-500/80"></span>
                     <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500/80"></span>
-                    <span className="text-[10px] sm:text-xs font-mono text-zinc-500 ml-1.5 sm:ml-2 truncate max-w-[150px] sm:max-w-none">
+                    <span className="text-[10px] sm:text-xs font-mono text-slate-400 ml-1.5 sm:ml-2 truncate max-w-[150px] sm:max-w-none">
                       polaris-cloud@vultr-node-y{current.year}:~
                     </span>
                   </div>
@@ -225,11 +259,22 @@ export default function CurriculumRoadmap() {
               {/* Year Metrics */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {current.metrics.map((m, idx) => (
-                  <div key={idx} className="p-2 sm:p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
-                    <div className="text-sm sm:text-lg md:text-xl font-semibold font-mono text-white mb-0.5">
+                  <div 
+                    key={idx} 
+                    className={`p-2 sm:p-3.5 rounded-xl border text-center transition-colors ${
+                      isLight 
+                        ? 'bg-slate-50 border-slate-200' 
+                        : 'bg-zinc-900/60 border-zinc-800'
+                    }`}
+                  >
+                    <div className={`text-sm sm:text-lg md:text-xl font-semibold font-mono mb-0.5 ${
+                      isLight ? 'text-slate-900' : 'text-white'
+                    }`}>
                       {m.val}
                     </div>
-                    <div className="text-[10px] sm:text-[11px] text-zinc-400 font-normal truncate">
+                    <div className={`text-[10px] sm:text-[11px] font-normal truncate ${
+                      isLight ? 'text-slate-500' : 'text-zinc-400'
+                    }`}>
                       {m.lbl}
                     </div>
                   </div>
